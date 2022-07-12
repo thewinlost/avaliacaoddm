@@ -12,19 +12,21 @@ import { auth, firestore } from "../firebase";
 
 const Escrever = () => {
   const [nome, setNome] = useState("");
-  const [raca, setRaca] = useState("");
-  const [cor, setCor] = useState("");
+  const [diretor, setDiretor] = useState("");
+  const [ano, setAno] = useState("");
+  const [genero, setGenero] = useState("");
 
   const enviarDados = () => {
     firestore
-      .collection("Gato")
+      .collection("Filme")
       .add({
         nome: nome,
-        raca: raca,
-        cor: cor,
+        diretor: diretor,
+        ano: ano,
+        genero: genero,
       })
       .then(() => {
-        alert("Gato " + nome + " Adicionado com Sucesso");
+        alert("Filme" + nome + " Adicionado com Sucesso");
       });
   };
 
@@ -40,15 +42,21 @@ const Escrever = () => {
           style={MeuEstilo.input}
         />
         <TextInput
-          placeholder="Raça"
-          value={raca}
-          onChangeText={(text) => setRaca(text)}
+          placeholder="Diretor"
+          value={diretor}
+          onChangeText={(text) => setDiretor(text)}
           style={MeuEstilo.input}
         />
         <TextInput
-          placeholder="Cor"
-          value={cor}
-          onChangeText={(text) => setCor(text)}
+          placeholder="Ano"
+          value={ano}
+          onChangeText={(text) => setAno(text)}
+          style={MeuEstilo.input}
+        />
+        <TextInput
+          placeholder="Genero"
+          value={genero}
+          onChangeText={(text) => setGenero(text)}
           style={MeuEstilo.input}
         />
       </View>

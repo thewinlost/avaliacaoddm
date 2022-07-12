@@ -13,18 +13,20 @@ import "firebase/compat/firestore";
 
 // Your web app's Firebase configuration
 
+// Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBH05hgIGZE5BKLr8n7fe4GAnOM9PydyfA",
+  apiKey: "AIzaSyA2o0GgUNKpaMBkI_PgJszb1gKrl1oyaW4",
 
-  authDomain: "pretcheemprega.firebaseapp.com",
+  authDomain: "avaliacaoddm1.firebaseapp.com",
 
-  projectId: "pretcheemprega",
+  projectId: "avaliacaoddm1",
 
-  storageBucket: "pretcheemprega.appspot.com",
+  storageBucket: "avaliacaoddm1.appspot.com",
 
-  messagingSenderId: "792768294131",
+  messagingSenderId: "931354585405",
 
-  appId: "1:792768294131:web:3efcbc3ad1d9ec5ef29b86",
+  appId: "1:931354585405:web:80f1ab6d41c1f7d60f7d54",
 };
 
 // Initialize Firebase

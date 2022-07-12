@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   View,
   FlatList,
-  MeuEstiloheet,
   Text,
   StatusBar,
 } from "react-native";
@@ -13,20 +12,20 @@ import MeuEstilo from "../meuestilo";
 
 const Listar = () => {
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
-  const [gatos, setGatos] = useState([]); // Initial empty array of users
+  const [filmes, setFilmes] = useState([]); // Initial empty array of users
 
   useEffect(() => {
     const subscriber = firestore
-      .collection("Gato")
+      .collection("Filme")
       .onSnapshot((querySnapshot) => {
-        const gatos = [];
+        const filmes = [];
         querySnapshot.forEach((documentSnapshot) => {
-          gatos.push({
+          filmes.push({
             ...documentSnapshot.data(),
             key: documentSnapshot.nome,
           });
         });
-        setGatos(gatos);
+        setFilmes(filmes);
         setLoading(false);
       });
     // Unsubscribe from events when no longer in use
@@ -81,7 +80,7 @@ const Listar = () => {
   return (
     <SafeAreaView style={MeuEstilo.containerlistar}>
       <FlatList
-        data={gatos}
+        data={filmes}
         renderItem={renderItem}
         keyExtractor={(item) => item.nome}
         // refreshing={true}

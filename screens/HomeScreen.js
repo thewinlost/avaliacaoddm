@@ -5,9 +5,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { auth, firestore } from "../firebase";
 import Escrever from "./Escrever";
 import Listar from "./Listar";
+import ListarcomfiltroFilmes from "./ListarcomfiltroFilmes";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-const Drawer = CreateDrawerNavigator();
+const Drawer = createDrawerNavigator();
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -15,6 +16,10 @@ const HomeScreen = () => {
     <Drawer.Navigator>
       <Drawer.Screen name="Escrever" component={EscreverScreen} />
       <Drawer.Screen name="Listar" component={ListarScreen} />
+      <Drawer.Screen
+        name="Listar com filtro Filmes"
+        component={ListarcomfiltroFilmesScreen}
+      />
     </Drawer.Navigator>
   );
 };
@@ -24,6 +29,9 @@ function EscreverScreen({ navigation }) {
 }
 function ListarScreen({ navigation }) {
   return <Listar></Listar>;
+}
+function ListarcomfiltroFilmesScreen({ navigation }) {
+  return <ListarcomfiltroFilmes></ListarcomfiltroFilmes>;
 }
 
 export default HomeScreen;

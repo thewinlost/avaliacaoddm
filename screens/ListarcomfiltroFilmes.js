@@ -4,7 +4,6 @@ import {
   ActivityIndicator,
   SafeAreaView,
   Text,
-  MeuEstiloheet,
   View,
   FlatList,
   TextInput,
@@ -13,25 +12,23 @@ import {
 import { auth, firestore } from "../firebase";
 import MeuEstilo from "../meuestilo";
 
-const ListaComFiltroGatos = () => {
+const ListarComFiltroFilmes = () => {
   const [search, setSearch] = useState("");
   const [dadosFiltrados, setdadosFiltrados] = useState([]);
-  const [gatos, setGatos] = useState([]);
+  const [filmes, setFilmes] = useState([]);
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
 
   useEffect(() => {
     const subscriber = firestore
-      .collection("Gato")
-      .onSnapshot((querySnapshot) => {
-        const gatos = [];
+      .collection("Filme")/home/aluno/Documentos/vitorinhacodigos/ddm-navigation-e-firestore
         querySnapshot.forEach((documentSnapshot) => {
-          gatos.push({
+          filmes.push({
             ...documentSnapshot.data(),
             key: documentSnapshot.nome,
           });
         });
-        setdadosFiltrados(gatos);
-        setGatos(gatos);
+        setdadosFiltrados(filmes);
+        setFilmes(filmes);
         setLoading(false);
       });
     // Unsubscribe from events when no longer in use
@@ -44,7 +41,7 @@ const ListaComFiltroGatos = () => {
 
   const searchFilter = (text) => {
     if (text) {
-      const newData = gatos.filter(function (item) {
+      const newData = filmes.filter(function (item) {
         if (item.nome) {
           const itemData = item.nome.toUpperCase();
           const textData = text.toUpperCase();
@@ -54,7 +51,7 @@ const ListaComFiltroGatos = () => {
       setdadosFiltrados(newData);
       setSearch(text);
     } else {
-      setdadosFiltrados(gatos);
+      setdadosFiltrados(filmes);
       setSearch(text);
     }
   };
@@ -95,7 +92,7 @@ const ListaComFiltroGatos = () => {
 };
 
 // const MeuEstilo = MeuEstiloheet.create({
-//   containerlistarcomfiltro: {
+//   ccontainerlistarcomfiltro: {
 //     paddingTop: 40,
 //     backgroundColor: 'white',
 //   },
@@ -115,4 +112,4 @@ const ListaComFiltroGatos = () => {
 //   },
 // });
 
-export default ListaComFiltroGatos;
+export default ListarComFiltroFilmes;
