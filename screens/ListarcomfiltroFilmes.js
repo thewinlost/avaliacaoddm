@@ -20,7 +20,9 @@ const ListarComFiltroFilmes = () => {
 
   useEffect(() => {
     const subscriber = firestore
-      .collection("Filme")/home/aluno/Documentos/vitorinhacodigos/ddm-navigation-e-firestore
+      .collection("Filme")
+      .onSnapshot((querySnapshot) => {
+        const filmes = [];
         querySnapshot.forEach((documentSnapshot) => {
           filmes.push({
             ...documentSnapshot.data(),
